@@ -1,131 +1,144 @@
-<!-- <style>
-    .btn-search {
-        background-color: #fe424d;
-        color: #fff;
-        border-radius: 50px;
-        padding: 0 1.2rem 0 1.2rem;
-    }
-
-    .btn-search:hover {
-        background-color: #fe424d;
-        color: #fff;
-    }
-
-    .btn-search i {
-        display: inline !important;
-        margin-right: 1rem;
-    }
-
-    .search-inp {
-        border-radius: 25px;
-        padding: 0.5rem 3rem 0.5rem 3rem;
-        font-size: 1rem;
-        font-weight: 200;
-        font-family: 'Courier New', Courier, monospace;
-        border: 1px solid rgb(47, 26, 26);
-
-    }
-</style> -->
-
 <style>
 
-.search-inp {
-    border-radius: 50px !important;
-    padding: 0.5rem 1.2rem !important;
-    height: 42px;
+.custom-navbar{
+    background: white;
+    padding: 10px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* logo */
+.navbar-brand i{
+    font-size: 24px;
+    color:#fe424d;
+}
+
+/* nav links */
+.nav-link{
+    font-weight: 500;
+}
+
+/* search input */
+.search-inp{
+    border-radius: 30px;
+    padding: 8px 18px;
+    width: 260px;
     border: 1px solid #ddd;
 }
 
-.btn-search {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 50px;
-    height: 42px;
-    padding: 0 1.2rem;
-    display: flex;
-    align-items: center;
+.search-inp:focus{
+    outline: none;
+    border: 1px solid #fe424d;
 }
 
-.btn-search:hover {
-    background-color: #fe424d;
-    color: #fff;
+/* search button */
+.btn-search{
+    background:#fe424d;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    border:none;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
+.btn-search:hover{
+    background:#e31c5f;
+}
 
 </style>
 
 
+<nav class="navbar navbar-expand-md sticky-top custom-navbar">
 
+<div class="container">
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
+<!-- LOGO -->
+<a class="navbar-brand" href="/listings">
+<i class="fa-solid fa-compass"></i>
+</a>
 
-        <!-- Logo Always Left -->
-        <a class="navbar-brand" href="/listings">
-            <i class="fa-solid fa-compass"></i>
-        </a>
+<!-- MOBILE TOGGLE -->
+<button class="navbar-toggler ms-auto"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
 
-        <!-- Toggle Button (Right Side Mobile) -->
-        <button class="navbar-toggler ms-auto" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<span class="navbar-toggler-icon"></span>
 
-        <!-- Navbar Items -->
-        <div class="collapse navbar-collapse" id="navbarNav">
+</button>
 
-            <!-- Left side items -->
-            <div class="navbar-nav me-auto">
-                <a class="nav-link" href="/listings">Explore</a>
-            </div>
+<div class="collapse navbar-collapse" id="navbarNav">
 
-          <!-- Desktop Search Only -->
+<!-- LEFT -->
+<div class="navbar-nav me-auto">
+<a class="nav-link" href="/listings">Explore</a>
+</div>
+
+<!-- CENTER SEARCH -->
 <div class="d-none d-md-flex mx-auto">
-    <form class="d-flex" role="search" action="/listings" method="GET">
-        <input class="form-control me-2 search-inp" type="search" name="q"
-            placeholder="Search destination" />
-        <button class="btn btn-search" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-        </button>
-    </form>
+
+<form class="d-flex align-items-center"
+role="search"
+action="/listings"
+method="GET">
+
+<input class="search-inp"
+type="search"
+name="q"
+placeholder="Search destinations">
+
+<button class="btn-search ms-2"
+type="submit">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+</form>
+
 </div>
 
-            <!-- Right side items -->
-<div class="navbar-nav ms-md-3">
-    <a class="nav-link" href="/listings/new">Airbnb your home</a>
+<!-- RIGHT SIDE -->
+<div class="navbar-nav ms-auto align-items-center">
 
-    <% if(!currUser){ %>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-    <% } %>
+<a class="nav-link me-2" href="/listings/new">
+Airbnb your home
+</a>
 
-    <% if(currUser){ %>
-        <a class="nav-link" href="/bookings/my">My Bookings</a>
+<% if(!currUser){ %>
 
-        <a class="nav-link" href="/bookings/host/dashboard">
-            Host Dashboard
-        </a>
+<a class="nav-link" href="/signup">
+Sign up
+</a>
 
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-    <% } %>
+<a class="nav-link" href="/login">
+Log in
+</a>
+
+<% } %>
+
+<% if(currUser){ %>
+
+<a class="nav-link" href="/bookings/my">
+My Bookings
+</a>
+
+<a class="nav-link" href="/bookings/host/dashboard">
+Host Dashboard
+</a>
+
+<a class="nav-link" href="/logout">
+Log out
+</a>
+
+<% } %>
+
 </div>
 
+</div>
 
-        </div>
-    </div>
+</div>
+
 </nav>
-
-<!-- Mobile Search -->
-<div class="container mt-2 d-md-none">
-    <form class="d-flex align-items-center" role="search" action="/listings" method="GET">
-        <input class="form-control me-2 search-inp" type="search" name="q"
-            placeholder="Search destination" />
-        <button class="btn btn-search" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-        </button>
-    </form>
-</div>
-

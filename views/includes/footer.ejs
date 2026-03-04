@@ -1,41 +1,190 @@
 
+ 
 <style>
-.f-info-socials i{
-    color: black !important;
 
-}
-footer {
-    width: 100%;
-}
-
-footer {
-    margin-left: 0;
-    margin-right: 0;
+footer{
+background:#f9fafb;
+border-top:1px solid #e5e7eb;
+margin-top:80px;
+padding-top:40px;
+font-size:14px;
 }
 
+/* container */
 
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:40px;
+padding:0 20px;
+}
+
+/* brand */
+
+.footer-brand h3{
+font-weight:700;
+margin-bottom:10px;
+}
+
+.footer-brand p{
+color:#6b7280;
+font-size:14px;
+line-height:1.6;
+}
+
+/* links */
+
+.footer-links h5{
+font-weight:600;
+margin-bottom:12px;
+}
+
+.footer-links a{
+display:block;
+color:#6b7280;
+text-decoration:none;
+margin-bottom:8px;
+transition:0.2s;
+}
+
+.footer-links a:hover{
+color:#ff385c;
+}
+
+/* socials */
+
+.footer-socials{
+margin-top:15px;
+}
+
+.footer-socials i{
+font-size:18px;
+margin-right:12px;
+color:#374151;
+transition:0.2s;
+}
+
+.footer-socials i:hover{
+color:#ff385c;
+transform:scale(1.1);
+}
+
+/* bottom */
+
+.footer-bottom{
+border-top:1px solid #e5e7eb;
+margin-top:30px;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+color:#6b7280;
+font-size:13px;
+max-width:1200px;
+margin-left:auto;
+margin-right:auto;
+}
 </style>
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <a href="https://www.facebook.com/username" target="_blank">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/username" target="_blank">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/hariom-patel-dev" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/hariom-patel-dsa" target="_blank">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </div>
-        <div>&copy; WanderLust Private Limited</div>
-        <div class="f-info-link">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-        </div>
-    </div>
-</footer> 
 
+
+
+<footer>
+
+<div class="footer-container">
+
+<!-- BRAND -->
+
+<div class="footer-brand">
+
+<h3>WanderLust</h3>
+
+<p>
+Discover amazing places to stay around the world.
+Book unique homes, experiences, and more.
+Travel better with WanderLust.
+</p>
+
+<div class="footer-socials">
+
+<a href="https://www.facebook.com/username" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+</a>
+
+<a href="https://www.instagram.com/username" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/hariom-patel-dev" target="_blank">
+<i class="fa-brands fa-linkedin"></i>
+</a>
+
+<a href="https://github.com/hariom-patel-dsa" target="_blank">
+<i class="fa-brands fa-github"></i>
+</a>
+
+</div>
+
+</div>
+
+
+<!-- COMPANY -->
+
+<div class="footer-links">
+
+<h5>Company</h5>
+
+<a href="#">About us</a>
+<a href="#">Careers</a>
+<a href="#">Press</a>
+<a href="#">Blog</a>
+
+</div>
+
+
+<!-- SUPPORT -->
+
+<div class="footer-links">
+
+<h5>Support</h5>
+
+<a href="#">Help Center</a>
+<a href="#">Cancellation</a>
+<a href="#">Safety</a>
+<a href="#">Contact us</a>
+
+</div>
+
+
+<!-- LEGAL -->
+
+<div class="footer-links">
+
+<h5>Legal</h5>
+
+<a href="/privacy">Privacy Policy</a>
+<a href="/terms">Terms & Conditions</a>
+<a href="#">Cookies Policy</a>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM -->
+
+<div class="footer-bottom">
+
+<div>
+© 2026 WanderLust Private Limited
+</div>
+
+<div>
+Made with ❤️ by Hariom Patel
+</div>
+
+</div>
+
+</footer>

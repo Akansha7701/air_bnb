@@ -16,6 +16,7 @@
 
 
 const Listing = require("../models/listing");
+const Booking = require("../models/booking");
 
 module.exports.index = async (req, res) => {
   const { category, q } = req.query;
@@ -36,7 +37,28 @@ module.exports.index = async (req, res) => {
     ];
   }
 
-  const allListings = await Listing.find(filter);
+  // const allListings = await Listing.find(filter);
+  const allListings = await Listing.find(filter).populate("reviews");
+
+  allListings.forEach(listing => {
+
+  if (listing.reviews.length > 0) {
+
+    let total = 0;
+
+    listing.reviews.forEach(review => {
+      total += review.rating;
+    });
+
+    listing.avgRating = (total / listing.reviews.length).toFixed(1);
+
+  } else {
+
+    listing.avgRating = "New";
+
+  }
+
+});
 
   res.render("listings/index", { allListings, category, q });
 };
@@ -119,9 +141,17 @@ module.exports.updateListing = async (req, res) => {
   res.redirect(`/listings/${id}`);
 };
 
+
+
 module.exports.destroyListing = async (req, res) => {
   let { id } = req.params;
+
+  // delete all bookings related to this listing
+  await Booking.deleteMany({ listing: id });
+
+  // delete the listing
   await Listing.findByIdAndDelete(id);
+
   req.flash("success", "Listing deleted successfully!");
   res.redirect("/listings");
 };

@@ -1,7 +1,6 @@
 if(process.env.NODE_ENV != "production"){
 require('dotenv').config() 
 console.log(process.env.GOOGLE_MAPS_API_KEY);
-
 }
 const express = require("express");
 const app = express();
@@ -23,10 +22,20 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 
+// const listingRouter = require("./routes/listing.js");
+// const reviewRouter = require("./routes/review.js");
+// const userRouter = require("./routes/user.js");
+// const bookingRouter = require("./routes/booking.js");
+
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const bookingRouter = require("./routes/booking.js");
+
+const paymentRouter = require("./routes/payment");
+const wishlistRoutes = require("./routes/wishlist.js");
+
+
 
 
 
@@ -111,8 +120,11 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/bookings", bookingRouter);
 
+app.use("/payment", paymentRouter);
+app.use("/wishlist", wishlistRoutes)
 
 
+;
 app.use("/",userRouter)
 
 app.all("*",(req, res, next)=>{
@@ -120,9 +132,9 @@ app.all("*",(req, res, next)=>{
 });
 
 
-app.all("/*", (req, res, next) => {
-  next(new ExpressError(404, "Page Not Found!"));
-});
+// app.all("/*", (req, res, next) => {
+//   next(new ExpressError(404, "Page Not Found!"));
+// });
 
 // Error-handling middleware
 app.use((err, req, res, next)=>{

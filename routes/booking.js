@@ -6,15 +6,32 @@ const { isLoggedIn } = require("../middleware");
 
 
 // ================= HOST DASHBOARD =================
-router.get("/host/dashboard", isLoggedIn, async (req, res) => {
-    const bookings = await Booking.find({ host: req.user._id })
-        .populate("listing")
-        .populate("guest");
-    //console.log("HOST ID SAVED:", booking.host.toString());
-    // console.log("CURRENT USER:", req.user._id.toString());
+// router.get("/host/dashboard", isLoggedIn, async (req, res) => {
+//     const bookings = await Booking.find({ host: req.user._id })
+//         .populate("listing")
+//         .populate("guest");
+//     //console.log("HOST ID SAVED:", booking.host.toString());
+//     // console.log("CURRENT USER:", req.user._id.toString());
 
+
+//     res.render("bookings/dashboard", { bookings });
+// });
+
+
+router.get("/host/dashboard", isLoggedIn, async (req, res) => {
+
+    const bookings = await Booking.find({ host: req.user._id })
+        .populate({
+            path: "listing",
+            select: "title image price"
+        })
+        .populate({
+            path: "guest",
+            select: "username"
+        });
 
     res.render("bookings/dashboard", { bookings });
+
 });
 
 // ================= GUEST DASHBOARD =================

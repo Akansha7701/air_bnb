@@ -1,0 +1,94 @@
+<% layout("/layouts/boilerplate") %>
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .payment-container {
+            max-width: 450px;
+            margin: auto;
+            margin-top: 80px;
+        }
+
+        .payment-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .payment-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .payment-btn {
+            background: #ff385c;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .payment-btn:hover {
+            background: #e61e4d;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .listing-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .price-box {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+    </style>
+
+
+    <div class="payment-container">
+
+        <div class="payment-card">
+
+            <h4 class="payment-title">Complete Payment</h4>
+
+            <p class="listing-name">
+                <%= booking.listing.title %>
+            </p>
+
+            <div class="price-box">
+
+                <p class="mb-1">
+                    Price per night
+                </p>
+
+                <h5>
+                    ₹ <%= booking.listing.price %>
+                </h5>
+
+            </div>
+
+            <hr>
+
+            <form action="/payment/<%= booking._id %>" method="POST">
+
+                <button class="payment-btn mt-3">
+                    Pay Now
+                </button>
+
+            </form>
+
+            <p class="text-center text-muted mt-3">
+                🔒 Secure Dummy Payment Gateway
+            </p>
+
+        </div>
+
+    </div>
