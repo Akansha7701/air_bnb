@@ -1,144 +1,193 @@
 <style>
-
 .custom-navbar{
-    background: white;
-    padding: 10px 30px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+padding:12px 32px;
+box-shadow:0 4px 20px rgba(0,0,0,0.06);
 }
 
 /* logo */
 .navbar-brand i{
-    font-size: 24px;
-    color:#fe424d;
+font-size:26px;
+color:#ff385c;
+transition:transform 0.2s ease;
+}
+
+.navbar-brand i:hover{
+transform:rotate(-10deg) scale(1.1);
 }
 
 /* nav links */
+
 .nav-link{
-    font-weight: 500;
+font-weight:500;
+position:relative;
+padding:6px 10px;
+transition:color 0.2s ease;
 }
 
-/* search input */
+.nav-link:hover{
+color:#ff385c;
+}
+
+/* underline animation */
+
+.nav-link::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:0%;
+height:2px;
+background:#ff385c;
+transition:width 0.25s ease;
+}
+
+.nav-link:hover::after{
+width:100%;
+}
+
+/* search bar */
+
 .search-inp{
-    border-radius: 30px;
-    padding: 8px 18px;
-    width: 260px;
-    border: 1px solid #ddd;
+border-radius:30px;
+padding:8px 18px;
+width:260px;
+border:1px solid #e5e7eb;
+transition:all 0.2s ease;
 }
 
 .search-inp:focus{
-    outline: none;
-    border: 1px solid #fe424d;
+outline:none;
+border:1px solid #ff385c;
+box-shadow:0 0 0 3px rgba(255,56,92,0.1);
 }
 
 /* search button */
+
 .btn-search{
-    background:#fe424d;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    border:none;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+background:#ff385c;
+border-radius:50%;
+width:38px;
+height:38px;
+border:none;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:all 0.2s ease;
 }
 
 .btn-search:hover{
-    background:#e31c5f;
+background:#e61e4d;
+transform:scale(1.05);
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
+/* right side links */
+
+.navbar-nav.ms-auto .nav-link{
+margin-left:10px;
+}
 </style>
 
 
 <nav class="navbar navbar-expand-md sticky-top custom-navbar">
 
-<div class="container">
+    <div class="container">
 
-<!-- LOGO -->
-<a class="navbar-brand" href="/listings">
-<i class="fa-solid fa-compass"></i>
-</a>
+        <!-- LOGO -->
+        <a class="navbar-brand" href="/listings">
+            <i class="fa-solid fa-compass"></i>
+        </a>
 
-<!-- MOBILE TOGGLE -->
-<button class="navbar-toggler ms-auto"
-type="button"
-data-bs-toggle="collapse"
-data-bs-target="#navbarNav">
+        <!-- MOBILE TOGGLE -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 
-<span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
 
-</button>
+        </button>
 
-<div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav">
 
-<!-- LEFT -->
-<div class="navbar-nav me-auto">
-<a class="nav-link" href="/listings">Explore</a>
-</div>
+            <!-- LEFT -->
+            <div class="navbar-nav me-auto">
+                <a class="nav-link" href="/listings">Explore</a>
+            </div>
 
-<!-- CENTER SEARCH -->
-<div class="d-none d-md-flex mx-auto">
+            <!-- CENTER SEARCH -->
+            <!-- <div class="d-none d-md-flex mx-auto">
 
-<form class="d-flex align-items-center"
-role="search"
-action="/listings"
-method="GET">
+                <form class="d-flex align-items-center" role="search" action="/listings" method="GET">
 
-<input class="search-inp"
-type="search"
-name="q"
-placeholder="Search destinations">
+                    <input class="search-inp" type="search" name="q" placeholder="Search destinations">
 
-<button class="btn-search ms-2"
-type="submit">
+                    <button class="btn-search ms-2" type="submit">
 
-<i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
 
-</button>
+                    </button>
 
-</form>
+                </form> -->
 
-</div>
+            <!-- </div> -->
 
-<!-- RIGHT SIDE -->
-<div class="navbar-nav ms-auto align-items-center">
+            <div class="d-none d-md-flex mx-auto">
 
-<a class="nav-link me-2" href="/listings/new">
-Airbnb your home
-</a>
+                <form class="d-flex align-items-center shadow-sm rounded-pill px-2 py-1 bg-white" action="/listings"
+                    method="GET">
 
-<% if(!currUser){ %>
+                    <input class="search-inp border-0" type="search" name="q" placeholder="Search destinations">
 
-<a class="nav-link" href="/signup">
-Sign up
-</a>
+                    <button class="btn-search ms-1" type="submit">
 
-<a class="nav-link" href="/login">
-Log in
-</a>
+                        <i class="fa-solid fa-magnifying-glass"></i>
 
-<% } %>
+                    </button>
 
-<% if(currUser){ %>
+                </form>
 
-<a class="nav-link" href="/bookings/my">
-My Bookings
-</a>
+            </div>
 
-<a class="nav-link" href="/bookings/host/dashboard">
-Host Dashboard
-</a>
+            <!-- RIGHT SIDE -->
+            <div class="navbar-nav ms-auto align-items-center">
 
-<a class="nav-link" href="/logout">
-Log out
-</a>
+                <a class="nav-link me-2" href="/listings/new">
+                    Airbnb your home
+                </a>
 
-<% } %>
+                <% if(!currUser){ %>
 
-</div>
+                    <a class="nav-link" href="/signup">
+                        Sign up
+                    </a>
 
-</div>
+                    <a class="nav-link" href="/login">
+                        Log in
+                    </a>
 
-</div>
+                    <% } %>
+
+                        <% if(currUser){ %>
+
+                            <a class="nav-link" href="/bookings/my">
+                                My Bookings
+                            </a>
+
+                            <a class="nav-link" href="/bookings/host/dashboard">
+                                Host Dashboard
+                            </a>
+
+                            <a class="nav-link" href="/logout">
+                                Log out
+                            </a>
+
+                            <% } %>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </nav>
