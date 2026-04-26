@@ -89,7 +89,7 @@ airbnb/
 
 Clone the repository
 
-git clone https://github.com/hariom-p1306/AirBnb-Full-Stack-Project-
+git clone: https://github.com/Akansha7701/air_bnb.git
 
 
 Install dependencies
