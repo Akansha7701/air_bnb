@@ -149,6 +149,6 @@ Performance optimization
 
 👤 Author
 
-Hariom Patel
+Akansha
 LinkedIn: (https://www.linkedin.com/in/hariom-patel-dev)
 Portfolio: https://portfolio-one-navy-20.vercel.app/
