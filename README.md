@@ -6,8 +6,8 @@ This project focuses on real-world backend workflows, authentication, role-based
 
 🚀 Live Demo
 
-🚀 Live Demo: [Click Here](https://airbnb-full-stack-project-e7eq.onrender.com/listings)
-📂 GitHub Repo: [Click Here](https://github.com/hariom-p1306/AirBnb-Full-Stack-Project-)
+🚀 Live Demo: 
+📂 GitHub Repo: [Click Here](https://github.com/Akansha7701/air_bnb)
 ⚠️ Note: Initial load may take a few seconds due to free server hosting.
 
 🛠️ Tech Stack
@@ -114,12 +114,12 @@ CLOUDINARY_SECRET=your_secret
 
 Run the server
 
-npm start
+npm app.js
 
 
 Open in browser:
 
-http://localhost:3000
+http://localhost:8080
 
 🎯 Learning Outcomes
 
@@ -150,5 +150,3 @@ Performance optimization
 👤 Author
 
 Akansha
-LinkedIn: (https://www.linkedin.com/in/hariom-patel-dev)
-Portfolio: https://portfolio-one-navy-20.vercel.app/
